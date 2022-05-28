@@ -1,11 +1,13 @@
 
 import os
 import sys
+from telnetlib import Telnet
+import time
 
 from source import *
 
 
-
+PORT=25565
 cores = ''
 versions = ''
 selectCoreCorrect = False
@@ -57,7 +59,31 @@ while(not selectVersionCorrect):
     versions = input().strip()
     if versions in source[cores].keys():
         selectVersionCorrect = True
+        
 
+
+#channel
+os.system('clear')
+print("Minecraft-"+cores+'-'+(versions if versions!='' else '?')+'.')
+print('------------------------------')
+print('We provide cpolar channel though you need to get token on https://www.cpolar.com/.')
+print('Create a channel (y/n): ', end='')
+createChannel = False if input() == 'n' else True
+if createChannel:
+    print('Enter your cpolar token (Empty if already setted): ',end='')
+    token = input()
+    print()
+    
+    if token!='':
+        os.system('cpolar authtoken ' + token.strip())
+
+
+    os.system('rm -rf ./cpolar')
+    print('Coppy the following sockets and Press "Enter" to continue.')
+    cmd = 'cpolar tcp 25565 -log=stdout | grep --color=auto -m 1 "New connection"'
+    # cmd = 'cpolar tcp '+str(PORT)+' -log="./cpolar/cpolar.log" &'
+    os.system(cmd)
+    input()
 
 
 #download

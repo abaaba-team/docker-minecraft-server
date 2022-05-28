@@ -1,0 +1,19 @@
+source = {
+    'Vanila':{
+        '1.7.2':'https://launcher.mojang.com/v1/objects/3716cac82982e7c2eb09f83028b555e9ea606002/server.jar',
+        '1.7.10':'https://launcher.mojang.com/v1/objects/952438ac4e01b4d115c5fc38f891710c4941df29/server.jar',
+        '1.10.2':'https://launcher.mojang.com/v1/objects/3d501b23df53c548254f5e3f66492d178a48db63/server.jar',
+        '1.12.2':'https://launcher.mojang.com/v1/objects/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar',
+        '1.15.2':'https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a215f6c636b07/server.jar',
+        '1.16.4':'https://launcher.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar',
+        '1.16.5':'https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar',
+        '1.17.1':'https://launcher.mojang.com/v1/objects/a16d67e5807f57fc4e550299cf20226194497dc2/server.jar',
+        '1.18.2':'https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar'
+    },
+    'Mohist':{
+        '1.7.10':'https://mohistmc.com/builds/1.7.10/Mohist-1.7.10-46-server.jar',
+        '1.12.2':'https://mohistmc.com/builds/1.12.2/mohist-1.12.2-321-server.jar',
+        '1.16.5':'https://mohistmc.com/builds/1.16.5/mohist-1.16.5-1008-server.jar',
+        '1.18.2':'https://mohistmc.com/builds/1.18.2-testing/mohist-1.18.2-40.1.25-47-installer.jar'
+    }
+}
