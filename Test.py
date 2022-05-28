@@ -112,5 +112,3 @@ else:
     os.system('java -jar server.jar nogui')
 
 
-os.system('true')
-
