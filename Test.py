@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 
 with open('Welcome','r',encoding = "UTF-8") as f:
@@ -15,3 +16,7 @@ print('-'*40)
 print('Please select a Minecraft version:')
 
 
+=======
+print("hello world")
+print("FML")
+>>>>>>> 556d89bbab1240b7c4bcdb7ed58f77e4ae671dd1
