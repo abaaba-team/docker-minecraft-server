@@ -1,21 +1,16 @@
-from asyncio import FastChildWatcher
+
 import os
+import sys
+
+from source import *
 
 
 
-source = {
-    'Vanila':'',
-    'Mohist':{
-        '1.7.10':'https://mohistmc.com/builds/1.7.10/Mohist-1.7.10-46-server.jar',
-        '1.12.2':'https://mohistmc.com/builds/1.12.2/mohist-1.12.2-321-server.jar',
-        '1.16.5':'https://mohistmc.com/builds/1.16.5/mohist-1.16.5-1008-server.jar',
-        '1.18.2':'https://mohistmc.com/builds/1.18.2-testing/mohist-1.18.2-40.1.25-47-installer.jar'
-    }
-}
 cores = ''
 versions = ''
 selectCoreCorrect = False
 selectVersionCorrect = False
+downloadSuccess = False
 
 with open('Welcome','r',encoding = "UTF-8") as f:
     lines=f.readlines()
@@ -40,15 +35,18 @@ while(not selectCoreCorrect):
         print('-   '+core)
 
     print('Please select a Minecraft Server Core:',end=' ')
-    cores = input()
+    cores = input().strip()
     if cores in source.keys():
         selectCoreCorrect = True
 
-os.system('clear')
-
-print(cores + ' is selected!\n')
 
 #version
+
+os.system('clear')
+print("Minecraft-"+cores+'-'+(versions if versions!='' else '?')+'.')
+print('------------------------------')
+
+print(cores + ' is selected!\n')
 print('Minecraft version lists:')
 while(not selectVersionCorrect):
 
@@ -56,12 +54,63 @@ while(not selectVersionCorrect):
         print('-    '+version)
 
     print('Please select a Minecraft version:',end=' ')
-    versions = input()
+    versions = input().strip()
     if versions in source[cores].keys():
         selectVersionCorrect = True
 
-os.system('clear')
-print(versions + ' is selected!\n')
+
 
 #download
-os.system('wget '+source[cores][versions])
+os.system('clear')
+print("Minecraft-"+cores+'-'+(versions if versions!='' else '?')+'.')
+print('------------------------------')
+
+print(versions + ' is selected!\n')
+
+
+while(not downloadSuccess):
+    os.system('wget '+source[cores][versions] + ' -O server.jar')
+    # print(os.listdir())
+
+    if 'server.jar' in os.listdir():
+        downloadSuccess = True
+        print('Download Success!!')
+        break
+    else:
+        print('Download Failed ~')
+        print('You can:\n1.Retry\n2.Exit\n----')
+        choice = input().strip()
+        if choice == 'Exit' or choice == '2':
+            exit()
+
+
+#install 
+os.system('clear')
+print("Minecraft-"+cores+'-'+(versions if versions!='' else '?')+'.')
+print('------------------------------')
+print('set RAM? (y/n) ',end='')
+choice = input()
+if choice == 'y':
+    maxRAM = -1
+    minRAM = -1
+    try:
+        print('Set Memory MB.')
+        print('Max RAM: ',end='')
+        maxRAM = int(input())
+        print('\nMin RAM: ',end='')
+        minRAM = int(input())
+        print()
+        if maxRAM >= minRAM:
+            os.system('java -Xmx'+maxRAM+'M -Xms'+minRAM+'M -jar server.jar nogui')
+        else:
+            print('parameter error using default')
+            os.system('java -jar server.jar nogui')
+    except:
+        print('parameter error using default')
+        os.system('java -jar server.jar nogui')
+else:
+    os.system('java -jar server.jar nogui')
+
+
+os.system('true')
+
