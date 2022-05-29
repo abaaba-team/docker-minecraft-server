@@ -105,7 +105,7 @@ while(not downloadSuccess):
     if 'server.jar' in os.listdir(os.getcwd() + '/LocalServer'):
         downloadSuccess = True
         print('Download Success!!')
-        input()
+        # input()
         break
     else:
         print('Download Failed ~')
