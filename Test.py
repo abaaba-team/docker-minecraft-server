@@ -1,7 +1,6 @@
 
 import os
 import sys
-from telnetlib import Telnet
 import time
 
 from source import *
@@ -78,11 +77,14 @@ if createChannel:
         os.system('cpolar authtoken ' + token.strip())
 
 
-    os.system('rm -rf ./cpolar')
-    print('Coppy the following sockets and Press "Enter" to continue.')
-    cmd = 'cpolar tcp 25565 -log=stdout | grep --color=auto -m 1 "New connection"'
+    # os.system('rm -rf ./cpolar')
+    
+    cmd = 'cpolar tcp 25565 -log=stdout | grep --color=auto -m 1 "1.tcp.cpolar.cn:"'
     # cmd = 'cpolar tcp '+str(PORT)+' -log="./cpolar/cpolar.log" &'
     os.system(cmd)
+    # time.sleep(5)
+    print('Coppy the following sockets and Press "Enter" to continue.')
+    
     input()
 
 
@@ -95,12 +97,15 @@ print(versions + ' is selected!\n')
 
 
 while(not downloadSuccess):
-    os.system('wget '+source[cores][versions] + ' -O server.jar')
-    # print(os.listdir())
+    # os.system('rm -rf ./LocalServer')
+    # os.system('mkdir LocalServer')
+    os.system('wget '+source[cores][versions] + ' -O ./LocalServer/server.jar')
+    print(os.listdir(os.getcwd() + '/LocalServer'))
 
-    if 'server.jar' in os.listdir():
+    if 'server.jar' in os.listdir(os.getcwd() + '/LocalServer'):
         downloadSuccess = True
         print('Download Success!!')
+        input()
         break
     else:
         print('Download Failed ~')
@@ -112,6 +117,7 @@ while(not downloadSuccess):
 
 #install 
 os.system('clear')
+os.chdir(os.getcwd()+'/LocalServer')
 print("Minecraft-"+cores+'-'+(versions if versions!='' else '?')+'.')
 print('------------------------------')
 print('set RAM? (y/n) ',end='')
