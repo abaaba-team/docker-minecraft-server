@@ -30,4 +30,4 @@ RUN    apt-get --yes install openjdk-17-jdk-headless
 
 EXPOSE 25565
 
-CMD    curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | bash && git clone https://github.com/abaaba-team/docker-minecraft-server.git && cd docker-minecraft-server && python3 Test.py
+CMD    curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | bash && git clone https://github.com/abaaba-team/docker-minecraft-server.git && cd docker-minecraft-server && python3 Test.py && bash
