@@ -86,7 +86,7 @@ def channel():
 
     # os.system('rm -rf ./cpolar')
     
-    cmd = 'cpolar tcp 25565 -log=stdout | grep --color=auto -m 1 "1.tcp.cpolar.cn:"'
+    cmd = 'cpolar tcp 25565 -log=stdout | grep --color=auto "1.tcp.cpolar.cn:" &'
     # cmd = 'cpolar tcp '+str(PORT)+' -log="./cpolar/cpolar.log" &'
     os.system(cmd)
     # time.sleep(5)
