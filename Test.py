@@ -2,8 +2,11 @@
 import os
 import sys
 import time
+import codecs
 
 from source import *
+
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 
 PORT=25565
