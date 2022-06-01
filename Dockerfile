@@ -4,7 +4,7 @@
 # Builds a basic docker image that can run a Minecraft server
 # (http://minecraft.net/).
 
-# https://github.com/rlenferink/docker-minecraft/blob/master/Dockerfile
+# https://github.com/abaaba-team/docker-minecraft-server
 # -----------------------------------------------------------------------------
 
 FROM   ubuntu:18.04
