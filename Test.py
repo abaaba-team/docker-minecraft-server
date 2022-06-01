@@ -3,6 +3,8 @@ import os
 import sys
 import time
 import codecs
+import _thread
+
 
 from source import *
 
@@ -70,8 +72,11 @@ print("Minecraft-"+cores+'-'+(versions if versions!='' else '?')+'.')
 print('------------------------------')
 print('We provide cpolar channel though you need to get token on https://www.cpolar.com/.')
 print('Create a channel (y/n): ', end='')
+
 createChannel = False if input() == 'n' else True
-if createChannel:
+channelCreated = False
+def channel():
+    global channelCreated
     print('Enter your cpolar token (Empty if already setted): ',end='')
     token = input()
     print()
@@ -87,9 +92,15 @@ if createChannel:
     os.system(cmd)
     # time.sleep(5)
     print('Coppy the following sockets and Press "Enter" to continue.')
-    
     input()
+    channelCreated = True
+    print('Thread End.')
 
+if createChannel:
+    _thread.start_new_thread ( channel(), )
+
+while createChannel or (not channelCreated):
+    print('',end='')
 
 #download
 os.system('clear')
