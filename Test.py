@@ -3,7 +3,6 @@ import os
 import sys
 import time
 import codecs
-import _thread
 
 
 from source import *
@@ -74,9 +73,9 @@ print('We provide cpolar channel though you need to get token on https://www.cpo
 print('Create a channel (y/n): ', end='')
 
 createChannel = False if input() == 'n' else True
-channelCreated = False
+# channelCreated = False
 def channel():
-    global channelCreated
+    # global channelCreated
     print('Enter your cpolar token (Empty if already setted): ',end='')
     token = input()
     print()
@@ -93,14 +92,12 @@ def channel():
     # time.sleep(5)
     print('Coppy the following sockets and Press "Enter" to continue.')
     input()
-    channelCreated = True
-    print('Thread End.')
+    # channelCreated = True
+    # print('Thread End.')
 
 if createChannel:
-    _thread.start_new_thread ( channel(), )
-
-while createChannel or (not channelCreated):
-    print('',end='')
+    channel()
+    # _thread.start_new_thread ( channel(), )
 
 #download
 os.system('clear')
@@ -157,4 +154,5 @@ if choice == 'y':
 else:
     os.system('java -jar server.jar nogui')
 
-
+while True:
+    pass
