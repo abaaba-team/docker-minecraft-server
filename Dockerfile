@@ -33,7 +33,7 @@ RUN    curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh
 
 # Server build
 
-RUN    git clone https://github.com/abaaba-team/docker-minecraft-server.git && cd docker-minecraft-server && python3 Test.py
+RUN    git clone https://github.com/abaaba-team/docker-minecraft-server.git && cd docker-minecraft-server 
 
 #--------------------------------------
 # Load in all of our config files.
