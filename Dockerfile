@@ -27,4 +27,4 @@ RUN    apt-get --yes install python3.7 wget git curl init
 # Cpolar
 # Server build
 
-CMD apt-get --yes install openjdk-17-jdk && curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | bash && git clone https://github.com/abaaba-team/docker-minecraft-server.git && cd docker-minecraft-server && python3 Test.py && bash
+CMD apt-get -y install openjdk-17-jdk-headless && curl -L https://www.cpolar.com/static/downloads/install-release-cpolar.sh | bash && git clone https://github.com/abaaba-team/docker-minecraft-server.git && cd docker-minecraft-server && python3 Test.py
